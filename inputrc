@@ -1,0 +1,42 @@
+set horizontal-scroll-mode on
+set visible-stats on
+set history-preserve-point off
+set revert-all-at-newline on
+set history-size 5000
+set mark-directories on
+set mark-symlinked-directories on
+set page-completions on
+set print-completions-horizontally on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set match-hidden-files off
+set bind-tty-special-chars off
+
+"\C-w": backward-kill-word
+"\C-u": kill-whole-line
+"\e[rC;DEL~": kill-word
+"\e[rC;BS~": backward-kill-word
+
+
+"\C-n": history-search-forward
+"\C-p": history-search-backward
+
+"\e[A": "\C-p"
+"\e[B": "\C-n"
+"\eOA": "\C-p"
+"\eOB": "\C-n"
+
+# rxvt
+"\eOd": backward-word
+"\eOc": forward-word
+"\e[3~": delete-char
+# xterm
+"\e[5D": backward-word
+"\e[5C": forward-word
+# xfree 4.3 xterm
+"\e[1;5D": backward-word
+"\e[1;5C": forward-word
+# screen
+"\eO5D": backward-word
+"\eO5C": forward-word
+

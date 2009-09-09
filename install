@@ -1,0 +1,30 @@
+#!/bin/sh
+
+yesno() {
+    read -p "$1 [y/N] " REPLY
+    case "$REPLY" in
+        *[yY]*) return 0;;
+        *) return 1;;
+    esac
+}
+
+DIR=`dirname $0`
+
+for i in $DIR/*; do
+    REALFILE=$HOME/.`basename "$i"`
+
+    # skip executables
+    [ -x "$i" ] && continue
+
+    if [ -f "$REALFILE" ]; then
+        if yesno "`basename \"$REALFILE\"` exists. Overwrite?"; then
+            BACKUP="$REALFILE.backup-`date +%F`"
+            echo "Backing up to $BACKUP ..."
+            mv "$REALFILE" "$REALFILE.backup-`date +%F`"
+        else
+            continue
+        fi
+    fi
+
+    ln "$i" "$REALFILE"
+done

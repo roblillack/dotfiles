@@ -1,0 +1,37 @@
+alias h='history 25'
+alias j='jobs -l'
+
+[ "x`uname -s`" = "xDarwin" ] && alias ls='ls -G'
+alias ll='ls -l'
+
+`grep --version | grep -q GNU` && alias grep='grep --color'
+alias g='grep'
+alias gi='grep -i'
+
+alias p='ps -ax'
+
+lll() {
+  ll $* | less
+}
+
+if [ "x`uname -s`" = "xLinux" ]; then
+  PSARGS=-eF
+else
+  PSARGS=-x
+fi
+
+ultrakill() {
+  ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$1\} | xargs kill -9
+}
+
+ULTRAKILL() {
+  sudo ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$1\} | xargs sudo kill -9
+}
+
+if [ "x`uname -s`" = "xLinux" ]; then
+  alias tft='xrandr --output LVDS --auto --pos 0x0 --output VGA --auto --right-of LVDS'
+  alias tftoff='xrandr --output LVDS --auto --output VGA --off'
+  alias work='xrandr --output LVDS --auto --pos 0x0 --output VGA --auto --right-of LVDS; setxkbmap -layout us -option ctrl:nocaps; xmodmap ~/.Xmodmap'
+  alias home='xrandr --output LVDS --auto --pos 0x0 --output VGA --auto --left-of LVDS; setxkbmap -layout us -option ctrl:nocaps; xmodmap ~/.Xmodmap'
+  alias nomad='xrandr --output LVDS --auto --output VGA --off; setxkbmap -layout de -option ctrl:nocaps'
+fi

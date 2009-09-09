@@ -1,0 +1,132 @@
+defutf8 on
+defflow off
+escape ^tt
+sorendition RW
+startup_message off
+defscrollback 1000
+compacthist on
+# damit geht alt-links/rechts, aber esc-links/rechts
+# kommt korrekterweise durch:
+maptimeout 5
+
+vbell on
+bell_msg 'ding-dong in window %n %t^G'
+activity 'activity in window %n %t^G'
+
+shell -bash
+shelltitle 'shell'
+
+caption always "%{=b bw} %H %{= bw}%c %M%d %{= cw} %-w%{=b cW}%n %t%{= cw}%+w"
+#hardstatus string "%H screen [%n %t]"
+hardstatus ignore "%H"
+#termcapinfo xterm 'hs:ts=\E]0;:fs=\007:ds=\E]0;xterm\007'
+#termcapinfo rxvt 'hs:ts=\E]0;:fs=\007:ds=\E]0;rxvt\007'
+bind > focus down
+bind < focus up
+bind + resize +1
+bind - resize -1
+bind m monitor
+bind ^m monitor
+
+bind W screen -t www elinks http://www.google.de
+bind M screen -t mutt mutt -y
+bind I screen -t irc irssi
+bind Q screen -t icq micq
+
+# robs own private bindings:
+# control-tab
+bindkey "^[[rC;TAB~" next
+
+# vi-tasten alt+j/k==runter/hoch, alt+h/l==links/rechts
+bindkey "^[j" focus down
+bindkey "^[k" focus up
+bindkey "^[h" prev
+bindkey "^[l" next
+# alt-space==split, alt-backspace==delete
+bindkey "^[ " split
+bindkey "^[^?" remove
+bindkey "^[^H" remove
+# alt-n==neu, alt-k==kill
+bindkey "^[n" screen
+bindkey "^[k" kill
+# alt-links/rechts: fenster auswählen
+bindkey "^[[1;3D" prev
+bindkey "^[[1;3C" next
+bindkey "^[O3D" prev
+bindkey "^[O3C" next
+bindkey "^[^[OD" prev
+bindkey "^[^[OC" next
+bindkey "^[^[[D" prev
+bindkey "^[^[[C" next
+# alt-hoch/runter: region auswählen
+bindkey "^[[1;3A" focus up
+bindkey "^[[1;3B" focus down
+bindkey "^[O3A" focus up
+bindkey "^[O3B" focus down
+bindkey "^[^[OA" focus up
+bindkey "^[^[OB" focus down
+bindkey "^[^[[A" focus up
+bindkey "^[^[[B" focus down
+# alt-einfügen/entfernen: region-split/remove
+bindkey "^[[2;3~" split
+bindkey "^[[3;3~" remove
+bindkey "^[^[[2~" split
+bindkey "^[^[[3~" remove
+# alt-plus/minus: region grösser/kleiner
+bindkey "«" resize +1
+bindkey "­" resize -1
+bindkey "^[+" resize +1
+bindkey "^[=" resize +1
+bindkey "^[-" resize -1
+# alt-0-9: fenster wählen (^ oder ~ == 0)
+#bindkey "Þ" select 0
+#bindkey "°" select 0
+#bindkey "±" select 1
+#bindkey "²" select 2
+#bindkey "³" select 3
+#bindkey "´" select 4
+#bindkey "µ" select 5
+#bindkey "¶" select 6
+#bindkey "·" select 7
+#bindkey "¸" select 8
+#bindkey "¹" select 9
+bindkey "^[0" select 0
+bindkey "^[\^" select 0
+bindkey "^[`" select 0
+bindkey "^[1" select 1
+bindkey "^[2" select 2
+bindkey "^[3" select 3
+bindkey "^[4" select 4
+bindkey "^[5" select 5
+bindkey "^[6" select 6
+bindkey "^[7" select 7
+bindkey "^[8" select 8
+bindkey "^[9" select 9
+# alt- oder shift-tab: nächstes fenster
+#bindkey "^É" next
+bindkey "^[^I" next
+bindkey "^[[Z" next
+
+# shift-f1 bis f10: fenster 1 bis 0
+#bindkey "^[O2P" select 1
+#bindkey "^[O2Q" select 2
+#bindkey "^[O2R" select 3
+#bindkey "^[O2S" select 4
+#bindkey "^[[15;2~" select 5
+#bindkey "^[[17;2~" select 6
+#bindkey "^[[18;2~" select 7
+#bindkey "^[[19;2~" select 8
+#bindkey "^[[20;2~" select 9
+#bindkey "^[[21;2~" select 0
+
+#bindkey "^[[23~" select 1
+#bindkey "^[[24~" select 2
+#bindkey "^[[25~" select 3
+#bindkey "^[[26~" select 4
+#bindkey "^[[28~" select 5
+#bindkey "^[[29~" select 6
+#bindkey "^[[31~" select 7
+#bindkey "^[[32~" select 8
+#bindkey "^[[33~" select 9
+#bindkey "^[[34~" select 0
+
