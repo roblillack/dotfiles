@@ -28,6 +28,10 @@ ULTRAKILL() {
   sudo ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$1\} | xargs sudo kill -9
 }
 
+latest() {
+  ls -t1 $1 | head -1
+}
+
 if [ "x`uname -s`" = "xLinux" ]; then
   alias tft='xrandr --output LVDS --auto --pos 0x0 --output VGA --auto --right-of LVDS'
   alias tftoff='xrandr --output LVDS --auto --output VGA --off'
