@@ -6,11 +6,13 @@ for i in {,/opt/local,/usr/local}/etc/bash_completion; do
 done
 
 # setting the path a bit like in tcsh
-path=
-for i in $HOME/bin{/`uname -s`-`uname -m`,}\
-         {/opt,/opt/local,/sw,/usr/local,,/usr,/usr/X11R6}/{s,}bin
-do path="${path:+$path:}$i"; done
-PATH=$path; export PATH
+if [ -n "$BASH" ]; then
+  path=
+  for i in $HOME/bin{/`uname -s`-`uname -m`,}\
+           {/opt,/opt/local,/sw,/usr/local,,/usr,/usr/X11R6}/{s,}bin
+  do path="${path:+$path:}$i"; done
+  export PATH=$path
+fi
 
 # set ENV to a file invoked each time sh is started for interactive use.
 ENV=$HOME/.shrc; export ENV
