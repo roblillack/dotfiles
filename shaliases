@@ -28,6 +28,10 @@ ULTRAKILL() {
   sudo ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$2\} | xargs -r sudo kill -9
 }
 
+hup() {
+  ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$2\} | xargs -r kill -HUP
+}
+
 latest() {
   ls -t1 $1 | head -1
 }
