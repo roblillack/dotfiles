@@ -45,7 +45,8 @@ PKG_CONFIG_PATH=/usr/lib/pkgconfig:/Library/Frameworks/Mono.framework/Libraries/
 BLOCKSIZE=K; export BLOCKSIZE
 PAGER=less; export PAGER
 
-if [ "x`uname -s`" = "xDarwin" ]; then
+if [ -f "/Applications/Emacs.app/Contents/MacOS/Emacs" -a\
+     -f "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient" ]; then
     EMACSCLIENT="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
     EMACS="/Applications/Emacs.app/Contents/MacOS/Emacs"
 elif [ -f "/opt/emacs/bin/emacs" ]; then
