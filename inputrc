@@ -14,8 +14,9 @@ set bind-tty-special-chars off
 
 "\C-w": backward-kill-word
 "\C-u": kill-whole-line
-"\e[rC;DEL~": kill-word
 "\e[rC;BS~": backward-kill-word
+"\e[3;5~": kill-word
+"\e[rC;DEL~": kill-word
 
 
 "\C-n": history-search-forward
