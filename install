@@ -16,6 +16,11 @@ for i in $DIR/*; do
     # skip executables
     [ -x "$i" ] && continue
 
+    # skip already hardlinked files
+    if [ "$i" -ef "$REALFILE" ]; then
+        continue
+    fi
+
     if [ -f "$REALFILE" ]; then
         if yesno "`basename \"$REALFILE\"` exists. Overwrite?"; then
             BACKUP="$REALFILE.backup-`date +%F`"
