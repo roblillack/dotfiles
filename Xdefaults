@@ -42,10 +42,18 @@ XTerm*cursorBlink:              true
 XTerm*cursorColor:              royalblue
 XTerm*cursorOffTime:            200
 XTerm*cursorOnTime:             300
-XTerm*highlightColor:           royalblue
+
+! default colors
 XTerm*background:               white
 XTerm*foreground:	            grey20
+
+! mouse selection colors
+XTerm*highlightColorMode:       true
+XTerm*highlightReverse:         false
+XTerm*highlightColor:           royalblue
+XTerm*highlightTextColor:       white
 XTerm*highlightSelection:       true
+
 XTerm*internalBorder:           1
 !XTerm*jumpscroll:	  true
 XTerm*pointerShape:             left_ptr
