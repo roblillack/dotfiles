@@ -36,6 +36,13 @@ bind Q screen -t icq micq
 # robs own private bindings:
 # control-tab
 bindkey "^[[rC;TAB~" next
+bindkey "^[[rA;LEFT~" prev
+bindkey "^[[rA;RIGHT~" next
+bindkey "^[[rA;UP~" focus up
+bindkey "^[[rA;DOWN~" focus down
+bindkey "^[[rA;INS~" split
+bindkey "^[[rA;DEL~" remove
+bindkey "^[[rA;BS~" remove
 
 # vi-tasten alt+j/k==runter/hoch, alt+h/l==links/rechts
 bindkey "^[j" focus down
