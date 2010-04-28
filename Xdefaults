@@ -57,13 +57,13 @@ XTerm*vt100.translations: #override\
   Super <Key>V:         insert-selection(PRIMARY, CUT_BUFFER1, CLIPBOARD)\n\
   Ctrl Shift <Key>C:    select-end(PRIMARY, CUT_BUFFER1, CLIPBOARD)\n\
   Ctrl Shift <Key>V:    insert-selection(PRIMARY, CUT_BUFFER1, CLIPBOARD)\n\
+  Alt <Key>Up:          string(0x1b) string(0x1b) string("[A")\n\
+  Alt <Key>Down:        string(0x1b) string(0x1b) string("[B")\n\
+  Alt <Key>Right:       string(0x1b) string(0x1b) string("[C")\n\
+  Alt <Key>Left:        string(0x1b) string(0x1b) string("[D")\n\
   Alt <Key>BackSpace:   string(0x1b) string("[rA;BS~")\n\
   Alt <Key>Insert:      string(0x1b) string("[rA;INS~")\n\
   Alt <Key>Delete:      string(0x1b) string("[rA;DEL~")\n\
-  Alt <Key>Up:          string(0x1b) string("[rA;UP~")\n\
-  Alt <Key>Down:        string(0x1b) string("[rA;DOWN~")\n\
-  Alt <Key>Left:        string(0x1b) string("[rA;LEFT~")\n\
-  Alt <Key>Right:       string(0x1b) string("[rA;RIGHT~")\n\
   Ctrl <Key>Tab:        string(0x1b) string("[rC;TAB~")\n\
   Ctrl <Key>BackSpace:  string(0x1b) string("[rC;BS~")\n\
   Ctrl <Key>Delete:     string(0x1b) string("[rC;DEL~")
