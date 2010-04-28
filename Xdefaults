@@ -1,0 +1,185 @@
+! yeaah!
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.antialias: true
+Xft.rgba: rgb
+Xft.dpi: 96
+
+acroread5*background:		#d5d6d5
+acroread5*shadowThickness:	1
+acroread5*topShadowColor:	#eeeeee
+acroread5*bottomShadowColor:	#838183
+
+Xcursor.size:		    16
+!Xcursor.theme:		    white_shadow
+Xcursor.theme:          default
+
+XTerm*loginShell:       true
+XTerm*title:            Terminal Emulation
+! inital setting: on, ignore switching sequences
+XTerm*utf8:             2
+XTerm*fastScroll:       true
+XTerm*faceName:         Envy Code R
+XTerm*faceSize:         10
+XTerm*boldMode:         true
+XTerm*underLine:        true
+
+! fett ==> fett+highcolor
+XTerm*boldColors:       false
+
+XTerm*colorBD:                  red3
+! Farbe statt fett?
+XTerm*colorBDMode:              false
+XTerm*colorBL:                  green4
+XTerm*colorBLMode:              false
+XTerm*colorRV:                  grey60
+XTerm*colorRVMode:              true
+XTerm*colorUL:                  blue
+XTerm*colorULMode:              false
+
+XTerm*cutNewline:               true
+XTerm*cursorBlink:              true
+XTerm*cursorColor:              royalblue
+XTerm*cursorOffTime:            200
+XTerm*cursorOnTime:             300
+XTerm*highlightColor:           royalblue
+XTerm*background:               white
+XTerm*foreground:	            grey20
+XTerm*highlightSelection:       true
+XTerm*internalBorder:           1
+!XTerm*jumpscroll:	  true
+XTerm*pointerShape:             left_ptr
+!XTerm*reverseWrap:	  false
+!XTerm*saveLines:	  200
+!XTerm*visualBell:	  false
+XTerm*vt100.translations: #override\
+  Super <Key>C:         select-end(PRIMARY, CUT_BUFFER1, CLIPBOARD)\n\
+  Super <Key>V:         insert-selection(PRIMARY, CUT_BUFFER1, CLIPBOARD)\n\
+  Ctrl Shift <Key>C:    select-end(PRIMARY, CUT_BUFFER1, CLIPBOARD)\n\
+  Ctrl Shift <Key>V:    insert-selection(PRIMARY, CUT_BUFFER1, CLIPBOARD)\n\
+  Alt <Key>BackSpace:   string(0x1b) string("[rA;BS~")\n\
+  Alt <Key>Insert:      string(0x1b) string("[rA;INS~")\n\
+  Alt <Key>Delete:      string(0x1b) string("[rA;DEL~")\n\
+  Alt <Key>Up:          string(0x1b) string("[rA;UP~")\n\
+  Alt <Key>Down:        string(0x1b) string("[rA;DOWN~")\n\
+  Alt <Key>Left:        string(0x1b) string("[rA;LEFT~")\n\
+  Alt <Key>Right:       string(0x1b) string("[rA;RIGHT~")\n\
+  Ctrl <Key>Tab:        string(0x1b) string("[rC;TAB~")\n\
+  Ctrl <Key>BackSpace:  string(0x1b) string("[rC;BS~")\n\
+  Ctrl <Key>Delete:     string(0x1b) string("[rC;DEL~")
+
+!  <Btn4Down>:                   string(0x1b) string("[5A")\n\
+!  <Btn5Down>:	                string(0x1b) string("[5B")
+XTerm*eightBitInput:            false
+XTerm*metaSendsEscape:	        false
+
+! schwarz, rot, grün, gelb, blau, magenta, zyan, weiss
+!XTerm*color0:		  black
+!XTerm*color1:		  red3
+!XTerm*color2:		  green3
+!XTerm*color3:		  orange
+!XTerm*color4:		  blue4
+!XTerm*color5:		  royalblue
+!XTerm*color6:		  rgb:aa/aa/dd
+!XTerm*color7:		  rgb:dd/dd/dd
+
+!XTerm*color8:		  grey30
+!XTerm*color9:		  red
+!XTerm*color10:		  green
+!XTerm*color11:		  yellow
+!XTerm*color12:		  blue
+!XTerm*color13:		  royalblue
+!XTerm*color14:		  rgb:aa/aa/ff
+!XTerm*color15:		  white
+
+! schwarz, rot, grün, gelb, blau, magenta, zyan, weiss
+!XTerm*color0:		  black
+!XTerm*color1:		  rgb:bf/5f/4c
+!XTerm*color2:		  rgb:77/77/77
+!XTerm*color3:		  rgb:bb/bb/bb
+!XTerm*color4:		  rgb:00/00/dd
+!XTerm*color5:		  rgb:00/00/77
+!XTerm*color6:		  rgb:00/00/aa
+!XTerm*color7:		  rgb:ff/ff/ff
+!XTerm*color8:		  grey30
+!XTerm*color9:		  red
+!XTerm*color10:		  green
+!XTerm*color11:		  yellow
+!XTerm*color12:		  blue
+!XTerm*color13:		  royalblue
+!XTerm*color14:		  rgb:aa/aa/ff
+!XTerm*color15:		  white
+
+URxvt.termName:		rxvt
+URxvt.scrollBar:	FALSE
+URxvt.foreground:	black
+URxvt.background:	white
+URxvt.title:		Terminal Emulation
+URxvt.loginShell:	true
+URxvt.cursorBlink:       true
+URxvt.cursorColor:	royalblue
+! fixed
+!URxvt.font:              -misc-fixed-medium-r-semicondensed-*-13-*-*-*-*-*-iso10646-1
+!URxvt.boldFont:          -misc-fixed-bold-r-semicondensed-*-13-*-*-*-*-*-iso10646-1
+!URxvt.italicFont:        -misc-fixed-medium-o-semicondensed-*-13-*-*-*-*-*-iso10646-1
+!URxvt.boldItalicFont:    -misc-fixed-bold-o-semicondensed-*-13-*-*-*-*-*-iso10646-1
+
+URxvt.font:              -burningsoda-emaruco-medium-r-normal--16-160-75-75-c-80-iso10646-1
+URxvt.boldFont:          -burningsoda-emaruco-bold-r-normal--16-160-75-75-c-80-iso10646-1
+URxvt.italicFont:        -burningsoda-emaruco-medium-r-normal--16-160-75-75-c-80-iso10646-1
+URxvt.boldItalicFont:    -burningsoda-emaruco-bold-r-normal--16-160-75-75-c-80-iso10646-1
+!URxvt.secondaryScroll:  true
+
+! Envy Code R
+!URxvt.font:              xft:Envy Code R:pixelsize=12:style=Regular
+!URxvt.boldFont:          xft:Envy Code R:pixelsize=12:style=Bold
+!URxvt.italicFont:        xft:Envy Code R:pixelsize=12:style=Oblique
+!URxvt.boldItalicFont:    xft:Envy Code R:pixelsize=12:style=Bold Oblique
+
+! DejaVu Sans Mono
+!URxvt.font:              xft:DejaVu Sans Mono:pixelsize=12:style=Regular
+!URxvt.boldFont:          xft:DejaVu Sans Mono:pixelsize=12:style=Bold
+!URxvt.italicFont:        xft:DejaVu Sans Mono:pixelsize=12:style=Oblique
+!URxvt.boldItalicFont:    xft:DejaVu Sans Mono:pixelsize=12:style=Bold Oblique
+
+! terminus
+!URxvt.font:              xft:terminus:pixelsize=14:style=Regular
+!URxvt.boldFont:          xft:terminus:pixelsize=14:style=Bold
+!URxvt.italicFont:        xft:terminus:pixelsize=14:style=Oblique
+!URxvt.boldItalicFont:    xft:terminus:pixelsize=14:style=Bold Oblique
+
+URxvt.colorBD:           red3
+URxvt.colorUL:           blue
+URxvt.colorIT:           green4
+URxvt.underlineColor:    grey50
+URxvt.borderColor:       white
+! schwarz, rot, grün, gelb, blau, magenta, zyan, weiss
+URxvt.color0:   rgb:00/00/00
+URxvt.color1:   rgb:77/00/00
+URxvt.color2:   rgb:00/77/00
+URxvt.color3:   rgb:77/77/00
+URxvt.color4:   rgb:00/00/77
+URxvt.color5:   rgb:77/00/77
+URxvt.color6:   rgb:00/77/77
+URxvt.color7:   rgb:cc/cc/cc
+
+URxvt.color8:   rgb:55/55/55
+URxvt.color9:   rgb:99/00/00
+URxvt.color10:  rgb:00/99/00
+URxvt.color11:  rgb:99/99/00
+URxvt.color12:  rgb:00/00/99
+URxvt.color13:  rgb:99/00/99
+URxvt.color14:  rgb:00/99/99
+URxvt.color15:  rgb:ff/ff/ff
+
+URxvt.scrollstyle:       plain
+
+URxvt.keysym.Control-Tab:        \033[rC;TAB~
+URxvt.keysym.Control-BackSpace:  \033[rC;BS~
+URxvt.keysym.Control-Delete:     \033[rC;DEL~
+
+! tabbed
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: google-chrome
+URxvt.matcher.button: 1
+URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
