@@ -37,9 +37,9 @@ latest() {
 }
 
 if [ "x`uname -s`" = "xLinux" ]; then
-  alias tft='xrandr --output LVDS --auto --pos 0x0 --output VGA --auto --right-of LVDS'
-  alias tftoff='xrandr --output LVDS --auto --output VGA --off'
-  alias work='xrandr --output LVDS --auto --pos 0x0 --output VGA --auto --right-of LVDS; setxkbmap -layout us -option ctrl:nocaps; xmodmap ~/.Xmodmap'
-  alias home='xrandr --output LVDS --auto --pos 0x0 --output VGA --auto --left-of LVDS; setxkbmap -layout us -option ctrl:nocaps; xmodmap ~/.Xmodmap'
-  alias nomad='xrandr --output LVDS --auto --output VGA --off; setxkbmap -layout de -option ctrl:nocaps'
+  alias tft='xrandr --output LVDS1 --auto --pos 0x0 --output VGA1 --auto --right-of LVDS1'
+  alias tftoff='xrandr --output LVDS1 --auto --output VGA1 --off'
+  alias work='xrandr --output LVDS1 --auto --pos 0x0 --output VGA1 --auto --right-of LVDS1; setxkbmap -layout us -option ctrl:nocaps; xmodmap ~/.Xmodmap'
+  alias home='xrandr --output LVDS1 --auto --pos 0x0 --output VGA1 --auto --left-of LVDS1; setxkbmap -layout us -option ctrl:nocaps; xmodmap ~/.Xmodmap'
+  alias nomad='xrandr --output LVDS1 --auto --output VGA1 --off; setxkbmap -layout de -option ctrl:nocaps'
 fi
