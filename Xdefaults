@@ -86,9 +86,9 @@ XTerm*metaSendsEscape:	        false
 !XTerm*color1:		  red3
 !XTerm*color2:		  green3
 !XTerm*color3:		  orange
-!XTerm*color4:		  blue4
+XTerm*color4:		  rgb:33/33/99
 !XTerm*color5:		  royalblue
-!XTerm*color6:		  rgb:aa/aa/dd
+XTerm*color6:		  rgb:77/77/cc
 !XTerm*color7:		  rgb:dd/dd/dd
 
 !XTerm*color8:		  grey30
