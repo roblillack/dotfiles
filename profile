@@ -56,9 +56,23 @@ else
     EMACSCLIENT="emacsclient"
     EMACS="emacs"
 fi
-EDITOR="$EMACSCLIENT --tty --alternate-editor="; export EDITOR
-VISUAL=$EDITOR; export VISUAL
 
-alias e='$EDITOR'
-alias E='$EMACSCLIENT --no-wait --create-frame --alternate-editor='
+if [ "x" != "x`which $EMACS`" -a\
+     "x" != "x`which $EMACSCLIENT`" ]; then
+    EDITOR="$EMACSCLIENT --tty --alternate-editor="; export EDITOR
+    VISUAL=$EDITOR; export VISUAL
 
+    alias e='$EDITOR'
+    alias E='$EMACSCLIENT --no-wait --create-frame --alternate-editor='
+else
+    if [ `which vim` ]; then
+        EDITOR=vim
+    else
+        EDITOR=vi
+    fi
+    export EDITOR
+    VISUAL=$EDITOR; export VISUAL
+
+    alias e=$EDITOR
+    alias E=$EDITOR
+fi
