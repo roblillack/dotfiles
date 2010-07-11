@@ -17,7 +17,9 @@ fi
 # set ENV to a file invoked each time sh is started for interactive use.
 ENV=$HOME/.shrc; export ENV
 
-if [ "x`uname -s`" = "xOpenBSD" ]; then
+if [ -f $HOME/.localerc ]; then
+  . $HOME/.localerc
+elif [ "x`uname -s`" = "xOpenBSD" ]; then
   LC_CTYPE=en_US.UTF-8; export LC_CTYPE
   unset LC_ALL
   unset LC_COLLATE
