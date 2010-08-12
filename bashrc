@@ -23,6 +23,8 @@ PS1='\[\033[1m\]\u\[\033[00m\]@\[\033[01m\]\h\[\033[00m\]:\[\033[04m\]\w\[\033[0
 [ $UID -eq 0 ] && PS1='\[\e[7m\]\h:\w#\[\e[0m\] '
 
 
+shopt -s globstar
+
 for i in birthdays pal; do
     [ `which $i` ] && $i
 done
