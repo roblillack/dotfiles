@@ -19,7 +19,8 @@ shopt -s checkwinsize histappend hostcomplete
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-PS1='\[\033[1m\]\u\[\033[00m\]@\[\033[01m\]\h\[\033[00m\]:\[\033[04m\]\w\[\033[00m\]% '
+PS1='\u@\h:\w% '
+#PS1='\[\033[1m\]\u\[\033[00m\]@\[\033[01m\]\h\[\033[00m\]:\[\033[04m\]\w\[\033[00m\]% '
 [ $UID -eq 0 ] && PS1='\[\e[7m\]\h:\w#\[\e[0m\] '
 
 
