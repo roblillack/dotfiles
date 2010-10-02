@@ -24,7 +24,7 @@ PS1='\u@\h:\w% '
 [ $UID -eq 0 ] && PS1='\[\e[7m\]\h:\w#\[\e[0m\] '
 
 
-shopt -s globstar
+shopt -s globstar 2>/dev/null
 
 for i in birthdays pal; do
     [ `which $i` ] && $i
