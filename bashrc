@@ -29,3 +29,6 @@ shopt -s globstar 2>/dev/null
 for i in birthdays pal; do
     [ `which $i` ] && $i
 done
+
+# hi ubuntu!
+unset command_not_found_handle
