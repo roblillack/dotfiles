@@ -78,3 +78,6 @@ else
     alias e=$EDITOR
     alias E=$EDITOR
 fi
+
+[ -r "/Library/Frameworks/Mono.framework/Versions/Current/env.sh" ] &&\
+    source "/Library/Frameworks/Mono.framework/Versions/Current/env.sh"
