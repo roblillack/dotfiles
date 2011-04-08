@@ -15,22 +15,24 @@ lll() {
 
 if [ "x`uname -s`" = "xLinux" ]; then
   PSARGS=-eF
+  XARGS=xargs -r
 else
   PSARGS=axu
+  XARGS=xargs
 fi
 
 alias p="ps $PSARGS"
 
 ultrakill() {
-  ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$2\} | xargs -r kill -9
+  ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$2\} | $XARGS kill -9
 }
 
 ULTRAKILL() {
-  sudo ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$2\} | xargs -r sudo kill -9
+  sudo ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$2\} | $XARGS sudo kill -9
 }
 
 hup() {
-  ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$2\} | xargs -r kill -HUP
+  ps $PSARGS | grep "$*" | grep -v grep | awk \{print\$2\} | $XARGS kill -HUP
 }
 
 latest() {
