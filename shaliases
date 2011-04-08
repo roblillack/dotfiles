@@ -1,5 +1,6 @@
 alias h='history 25'
 alias j='jobs -l'
+alias t=task
 
 [ "x`uname -s`" = "xDarwin" ] && alias ls='ls -G'
 alias ll='ls -l'
