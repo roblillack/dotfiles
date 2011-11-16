@@ -1,10 +1,3 @@
-# bash-completion
-for i in {,/opt/local,/usr/local}/etc/bash_completion; do
-    if [ -f $i ]; then
-        . $i
-    fi
-done
-
 # setting the path a bit like in tcsh
 if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
   path=
@@ -15,7 +8,14 @@ if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
 fi
 
 # set ENV to a file invoked each time sh is started for interactive use.
-ENV=$HOME/.shrc; export ENV
+if [ -n "$BASH_VERSION" ]; then
+  ENV=~/.bashrc
+elif [ -n "$KSH_VERSION" ]; then
+  ENV=~/.kshrc
+else
+  ENV=$HOME/.shrc
+fi
+export ENV
 
 if [ -f $HOME/.localerc ]; then
   . $HOME/.localerc

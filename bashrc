@@ -1,6 +1,3 @@
-[ -f "$ENV" ] && . $ENV
-[ -f ~/.shaliases ] && . ~/.shaliases
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -19,16 +16,13 @@ shopt -s checkwinsize histappend hostcomplete
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-PS1='\u@\h:\w% '
 #PS1='\[\033[1m\]\u\[\033[00m\]@\[\033[01m\]\h\[\033[00m\]:\[\033[04m\]\w\[\033[00m\]% '
-[ $UID -eq 0 ] && PS1='\[\e[7m\]\h:\w#\[\e[0m\] '
+[ $UID -eq 0 ] && PS1='\[\e[7m\]\h:\w#\[\e[0m\] ' || PS1='\u@\h:\w% '
 
 
 shopt -s globstar 2>/dev/null
 
-for i in birthdays pal; do
-    [ `which $i 2>/dev/null` ] && $i
-done
-
 # hi ubuntu!
 unset command_not_found_handle
+
+[ -f ~/.shrc ] && . ~/.shrc

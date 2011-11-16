@@ -1,1 +1,5 @@
-#echo shrc
+[ -r ~/.shaliases ] && . ~/.shaliases
+
+for i in birthdays pal; do
+    [ `which $i 2>/dev/null` ] && $i
+done
