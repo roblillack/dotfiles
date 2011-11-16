@@ -71,3 +71,5 @@ else
     alias e=$EDITOR
     alias E=$EDITOR
 fi
+
+[ -r ~/.profile.local ] && . ~/.profile.local
