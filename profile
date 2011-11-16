@@ -6,7 +6,7 @@ for i in {,/opt/local,/usr/local}/etc/bash_completion; do
 done
 
 # setting the path a bit like in tcsh
-if [ -n "$BASH" ]; then
+if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
   path=
   for i in $HOME/bin{/`uname -s`-`uname -m`,}\
            {/opt,/opt/local,/sw,/usr/local,,/usr,/usr/X11R6}/{s,}bin
