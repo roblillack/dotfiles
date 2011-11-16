@@ -5,7 +5,7 @@ alias t=task
 [ "x`uname -s`" = "xDarwin" ] && alias ls='ls -G'
 alias ll='ls -l'
 
-`grep --version | grep -q GNU` && alias grep='grep --color'
+`grep --version 2>&1 | grep -q GNU` && alias grep='grep --color'
 alias g='grep'
 alias gi='grep -i'
 
