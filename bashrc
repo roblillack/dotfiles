@@ -27,7 +27,7 @@ PS1='\u@\h:\w% '
 shopt -s globstar 2>/dev/null
 
 for i in birthdays pal; do
-    [ `which $i` ] && $i
+    [ `which $i 2>/dev/null` ] && $i
 done
 
 # hi ubuntu!
