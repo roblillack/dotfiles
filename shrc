@@ -1,3 +1,6 @@
+# one of the korn shells?
+case "$0" in *ksh) [ -r ~/.kshrc ] && . ~/.kshrc ;; esac
+
 [ -r ~/.shaliases ] && . ~/.shaliases
 
 for i in birthdays pal; do

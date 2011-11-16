@@ -8,14 +8,7 @@ if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
 fi
 
 # set ENV to a file invoked each time sh is started for interactive use.
-if [ -n "$BASH_VERSION" ]; then
-  ENV=~/.bashrc
-elif [ -n "$KSH_VERSION" ]; then
-  ENV=~/.kshrc
-else
-  ENV=$HOME/.shrc
-fi
-export ENV
+ENV=$HOME/.shrc; export ENV
 
 if [ -f $HOME/.localerc ]; then
   . $HOME/.localerc

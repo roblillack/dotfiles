@@ -13,5 +13,3 @@ else
     || PS1='${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}> '
 fi
 
-[ -r ~/.shrc ] && . ~/.shrc
-
