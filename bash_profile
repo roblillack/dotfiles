@@ -5,6 +5,12 @@ for i in {,/opt/local,/usr/local}/etc/bash_completion; do
     fi
 done
 
+if [ -d ~/.bash_completion.d ]; then
+   for i in ~/.bash_completion.d/*.sh; do
+       source "$i"
+   done
+fi
+
 [ -f ~/.profile ] && . ~/.profile
 [ -f ~/.bashrc ] && . ~/.bashrc
 
