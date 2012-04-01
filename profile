@@ -54,22 +54,15 @@ fi
 
 if [ "x" != "x`which $EMACS 2>/dev/null`" -a\
      "x" != "x`which $EMACSCLIENT 2>/dev/null`" ]; then
-    EDITOR="$EMACSCLIENT --tty --alternate-editor="; export EDITOR
-    VISUAL=$EDITOR; export VISUAL
-
-    alias e='$EDITOR'
     alias E='$EMACSCLIENT --no-wait --create-frame --alternate-editor='
-else
-    if [ `which vim 2>/dev/null` ]; then
-        EDITOR=vim
-    else
-        EDITOR=vi
-    fi
-    export EDITOR
-    VISUAL=$EDITOR; export VISUAL
-
-    alias e=$EDITOR
-    alias E=$EDITOR
 fi
+
+if [ `which vim 2>/dev/null` ]; then
+    EDITOR=vim
+else
+    EDITOR=vi
+fi
+export EDITOR
+VISUAL=$EDITOR; export VISUAL
 
 [ -r ~/.profile.local ] && . ~/.profile.local
