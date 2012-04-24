@@ -1,8 +1,15 @@
+# bash-completion
+for i in {,/opt/local,/usr/local}/etc/bash_completion.d/*; do
+    if [ -f $i ]; then
+        . $i
+    fi
+done
+
 # setting the path a bit like in tcsh
 if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
   path=
   for i in $HOME/bin{/`uname -s`-`uname -m`,}\
-           {/opt,/opt/local,/sw,/usr/local,,/usr,/usr/X11R6}/{s,}bin
+           {/opt,/opt/local,/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
   do path="${path:+$path:}$i"; done
   export PATH=$path
 fi
