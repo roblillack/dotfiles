@@ -17,7 +17,13 @@ shopt -s checkwinsize histappend hostcomplete
 #[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 #PS1='\[\033[1m\]\u\[\033[00m\]@\[\033[01m\]\h\[\033[00m\]:\[\033[04m\]\w\[\033[00m\]% '
-[ $UID -eq 0 ] && PS1='\[\e[7m\]\h:\w#\[\e[0m\] ' || PS1='\u@\h:\w% '
+if [ $UID -eq 0 ]; then
+  PS1='\[\e[7m\]\h:\w#\[\e[0m\] '
+elif type __gitdir &>/dev/null; then
+  PS1='\u@\h:\w$(__git_ps1 " (%s)")% '
+else
+  PS1='\u@\h:\w% '
+fi
 
 
 shopt -s globstar 2>/dev/null
