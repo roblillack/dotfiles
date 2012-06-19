@@ -16,7 +16,6 @@
   co = checkout
   st = status
   br = branch -a
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   switch = !legit switch \"$@\"
   branches = !legit branches
   sprout = !legit sprout \"$@\"
@@ -25,6 +24,7 @@
   sync = !legit sync \"$@\"
   publish = !legit publish \"$@\"
   graft = !legit graft \"$@\"
+  l = log --graph --pretty=format:\"%Cred%h%Cgreen %cd %Creset|%C(yellow)%d%Creset %s -- %Cblue%an%Creset, %Cgreen%ar%Creset\" --abbrev-commit --date=short
 
 [color "branch"]
   current = yellow blue bold
