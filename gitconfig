@@ -25,6 +25,7 @@
   publish = !legit publish \"$@\"
   graft = !legit graft \"$@\"
   l = log --graph --pretty=format:\"%Cred%h%Cgreen %cd %Creset|%C(yellow)%d%Creset %s -- %Cblue%an%Creset, %Cgreen%ar%Creset\" --abbrev-commit --date=short
+  new = !sh -c 'git lg $1@{1}..$1@{0} "$@"'
 
 [color "branch"]
   current = yellow blue bold
