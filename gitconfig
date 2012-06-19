@@ -1,0 +1,54 @@
+[core]
+  excludesfile = /Users/rob/.gitignore_global
+
+[user]
+  name = Robert Lillack
+  email = rob@burningsoda.com
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+
+[alias]
+  ltag = for-each-ref --sort='-*authordate' --format='%(tag)' refs/tags --count=1
+  ci = commit -a
+  co = checkout
+  st = status
+  br = branch -a
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  switch = !legit switch \"$@\"
+  branches = !legit branches
+  sprout = !legit sprout \"$@\"
+  unpublish = !legit unpublish \"$@\"
+  harvest = !legit harvest \"$@\"
+  sync = !legit sync \"$@\"
+  publish = !legit publish \"$@\"
+  graft = !legit graft \"$@\"
+
+[color "branch"]
+  current = yellow blue bold
+  local = normal
+  remote = normal ul
+
+[color "status"]
+  header = normal
+  added = normal ul
+  changed = normal bold
+  untracked = normal reverse
+#[merge]
+#  ff = only
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[mergetool "sourcetree"]
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+
+[diff "docx"]
+  textconv = docx2txt <
+
+# we probably want to overwrite the email-address here ...
+[include]
+  path = .gitconfig_local
+
