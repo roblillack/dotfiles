@@ -1,5 +1,5 @@
 [core]
-  excludesfile = /Users/rob/.gitignore_global
+  excludesfile = ~/.gitignore_global
 
 [user]
   name = Robert Lillack
