@@ -1,5 +1,5 @@
 # bash-completion
-for i in {,/opt/local,/usr/local}/etc/bash_completion.d/*; do
+for i in {,/opt/local,/usr/local}/etc/bash_completion; do
     if [ -f $i ]; then
         . $i
     fi
@@ -42,7 +42,7 @@ COLORTERM=1; export COLORTERM
 CLICOLOR=yeah; export CLICOLOR
 TEXINPUTS=.:$HOME/Documents/projekte/tex:; export TEXINPUTS
 
-PKG_CONFIG_PATH=/usr/lib/pkgconfig:/Library/Frameworks/Mono.framework/Libraries/pkgconfig:/opt/local/lib/pkgconfig; export PKG_CONFIG_PATH
+#PKG_CONFIG_PATH=/usr/lib/pkgconfig:/Library/Frameworks/Mono.framework/Libraries/pkgconfig:/opt/local/lib/pkgconfig; export PKG_CONFIG_PATH
 
 BLOCKSIZE=K; export BLOCKSIZE
 PAGER=less; export PAGER
