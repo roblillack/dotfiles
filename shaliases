@@ -47,3 +47,7 @@ if [ "x`uname -s`" = "xLinux" ]; then
   alias home='xrandr --output LVDS1 --auto --pos 0x0 --output VGA1 --auto --left-of LVDS1; setxkbmap -layout us -option ctrl:nocaps; xmodmap ~/.Xmodmap'
   alias nomad='xrandr --output LVDS1 --auto --output VGA1 --off; setxkbmap -layout de -option ctrl:nocaps'
 fi
+
+ssh-send-key() {
+  PUBKEY=`ssh-keygen -y` && ( echo "$PUBKEY" | ssh $@ 'mkdir -p $HOME/.ssh && cat >> $HOME/.ssh/authorized_keys' )
+}
