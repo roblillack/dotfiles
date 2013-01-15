@@ -28,14 +28,6 @@ elif [ "x`uname -s`" = "xOpenBSD" ]; then
   unset LC_MONETARY
   unset LC_MESSAGES
   unset LANG
-else
-  LANG=de_DE.UTF-8;	export LANG
-  LC_CTYPE=de_DE.UTF-8;	export LC_CTYPE
-  LC_COLLATE=de_DE.UTF-8; export LC_COLLATE
-  LC_TIME=de_DE.UTF-8; export LC_TIME
-  LC_NUMERIC=de_DE.UTF-8; export LC_NUMERIC
-  LC_MONETARY=de_DE.UTF-8; export LC_MONETARY
-  LC_MESSAGES=$LANG; export LC_MESSAGES
 fi
 
 COLORTERM=1; export COLORTERM
