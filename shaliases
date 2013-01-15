@@ -16,7 +16,7 @@ lll() {
 
 if [ "x`uname -s`" = "xLinux" ]; then
   PSARGS=-eF
-  XARGS=xargs -r
+  XARGS="xargs -r"
 else
   PSARGS=axu
   XARGS=xargs
