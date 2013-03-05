@@ -16,14 +16,6 @@
   co = checkout
   st = status
   br = branch -a
-  switch = !legit switch \"$@\"
-  branches = !legit branches
-  sprout = !legit sprout \"$@\"
-  unpublish = !legit unpublish \"$@\"
-  harvest = !legit harvest \"$@\"
-  sync = !legit sync \"$@\"
-  publish = !legit publish \"$@\"
-  graft = !legit graft \"$@\"
   l = log --graph --pretty=format:\"%Cred%h%Cgreen %cd %Creset|%C(yellow)%d%Creset %s -- %Cblue%an%Creset, %Cgreen%ar%Creset\" --abbrev-commit --date=short
   new = !sh -c 'git l $1@{1}..$1@{0} "$@"'
 
