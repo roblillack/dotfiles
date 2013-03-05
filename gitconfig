@@ -12,6 +12,7 @@
 
 [alias]
   ltag = for-each-ref --sort='-*authordate' --format='%(tag)' refs/tags --count=1
+  dist = !bash -c 'ltag=$(git ltag) tree=${1:-${ltag:-HEAD}} name="$(basename $(pwd))-${tree}.tgz" && git archive "${tree}" | gzip -9 > "${name}" && du -sh "${name}"' "$1"
   ci = commit -a
   co = checkout
   st = status
