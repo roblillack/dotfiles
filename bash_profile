@@ -1,3 +1,5 @@
+[ -f ~/.profile ] && . ~/.profile
+
 # bash-completion
 for i in {,/opt/local,/usr/local}/etc/bash_completion; do
     if [ -f $i ]; then
@@ -5,13 +7,12 @@ for i in {,/opt/local,/usr/local}/etc/bash_completion; do
     fi
 done
 
-if [ -d ~/.bash_completion.d ]; then
-   for i in ~/.bash_completion.d/*.sh; do
-       source "$i"
-   done
-fi
+for d in {/usr/local/etc/,~/.}bash_completion.d; do
+   if [ -d "$d" ]; then
+      for i in "$d"/*.sh "$d"/*.bash; do
+          source "$i"
+      done
+   fi
+done
 
-[ -f ~/.profile ] && . ~/.profile
 [ -f ~/.bashrc ] && . ~/.bashrc
-
-#complete -fX '!*.rar' unrar
