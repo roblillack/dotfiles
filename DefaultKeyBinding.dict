@@ -1,0 +1,87 @@
+{                                                                 // -*- js -*-
+    /* LOOK HERE:
+     * http://www.hcs.harvard.edu/~jrus/site/cocoa-text.html */
+
+    /* HOME or CONTROL-A: Beginning of line */
+    "\UF729"    = "moveToBeginningOfLine:";
+    "^a"        = "moveToBeginningOfLine:";
+    /* END or CONTROL-E: End of line */
+    "\UF72B"    = "moveToEndOfLine:";
+    "^e"        = "moveToEndOfLine:";
+
+    /* SHIFT-HOME or CONTROL-SHIFT-A: Select to beginning of line */
+    "$\UF729"   = "moveToBeginningOfLineAndModifySelection:";
+    "^A"        = "moveToBeginningOfLineAndModifySelection:";
+    /* SHIFT-END or CONTROL-SHIFT-E: Select to end of line */
+    "$\UF72B"   = "moveToEndOfLineAndModifySelection:";
+    "^E"        = "moveToEndOfLineAndModifySelection:";
+
+    /* CONTROL-HOME: Beginning of document */
+    "^\UF729"   = "moveToBeginningOfDocument:";
+    /* CONTROL-END: End of document */
+    "^\UF72B"   = "moveToEndOfDocument:";
+
+    /* CONTROL-SHIFT-HOME: Select to beginning of document */
+    "^$\UF729"  = "moveToBeginningOfDocumentAndModifySelection:";
+    /* CONTROL-SHIFT-HOME: Select to end of document */
+    "^$\UF72B"  = "moveToEndOfDocumentAndModifySelection:";
+
+    /* PAGE UP: Page up */
+    "\UF72C"    = "pageUp:";
+    /* PAGE DOWN: Page down */
+    "\UF72D"    = "pageDown:";
+
+    "~\UF72C"   = "scrollPageUp:";                  /* O-pg up      Scroll page up */
+    "~\UF72D"   = "scrollPageDown:";                /* O-pg dn      Scroll page down */
+
+    /* CONTROL-BACKSPACE or CONTROL-W: Delete word backward */
+    "^\U007F"   = "deleteWordBackward:";
+    "^w"        = "deleteWordBackward:";
+    /* CONTROL-DELETE: Delete word forward */
+    "^\UF728"   = "deleteWordForward:";
+
+    /* SHIFT-RETURN: Line break */
+    "$\U000A"   = "insertLineBreak:";
+
+    /***** ARROWS *****/
+
+    "^\UF700"   = ("moveLeft:", "moveToBeginningOfParagraph:");     /* C-up         Move to beginning of paragraph */
+    "^\UF701"   = ("moveRight:", "moveToEndOfParagraph:");          /* C-down       Move to end of paragraph */
+
+    "^$\UF700"  = "moveToBeginningOfParagraphAndModifySelection:";
+    /* C-Shft-up    Select to beginning of paragraph */
+    "^$\UF701"  = "moveToEndOfParagraphAndModifySelection:";
+    /* C-Shft-down  Select to end of paragraph */
+
+    "^\UF702"   = "moveWordLeft:";                  /* C-left       Move word left */
+    "^\UF703"   = "moveWordRight:";                 /* C-right      Move word right */
+
+    "$^\UF702"  = "moveWordLeftAndModifySelection:";
+    /* C-Shft-left  Select word left */
+    "$^\UF703"  = "moveWordRightAndModifySelection:";
+    /* C-Shft-right Select word right */
+
+
+    /***** CTRL + LETTERS *****/
+
+    /* CONTROL-K: Delete to end of line */
+    "^k"        = "deleteToEndOfLine:";
+    /* CONTROL-C: Copy */
+    "^c"        = "copy:";
+    /* CONTROL-V: Paste */
+    "^v"        = "pasteAsPlainText:";
+    /* CONTROL-X: Cut */
+    //"^x"        = "cut:";
+
+    /* CONTROL-Z: Undo */
+    "^z"        = "undo:";
+    /* CONTROL-SHIFT-Z: Redo */
+    "^Z"        = "redo:";
+
+    "^x"      = {
+        // CONTROL-X, CONTROL-S: Save
+        "^s"    = "save:";
+        // CONTROL-X, CONTROL-W: Save as ...
+        "^w"    = "saveAs:";
+    };
+}

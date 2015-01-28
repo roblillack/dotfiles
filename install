@@ -12,6 +12,7 @@ DIR=`dirname $0`
 
 for i in $DIR/*; do
     REALFILE=$HOME/.`basename "$i"`
+    BASENAME=$(basename "$i")
 
     # skip executables
     [ -x "$i" ] && continue
@@ -19,6 +20,23 @@ for i in $DIR/*; do
     # skip already hardlinked files
     if [ "$i" -ef "$REALFILE" ]; then
         continue
+    fi
+
+    if [ "${i##*.}" = "plist" ]; then
+        if [ `uname -s` != "Darwin" ]; then
+            continue
+        fi
+        defaults import ${BASENAME%.*} "$i"
+        continue
+    fi
+
+    if [ `basename "$i"` = "DefaultKeyBinding.dict" ]; then
+        if [ `uname -s` = "Darwin" ]; then
+            mkdir -p $HOME/Library/KeyBindings
+            REALFILE=$HOME/Library/KeyBindings/DefaultKeyBinding.dict
+        else
+            continue
+        fi
     fi
 
     if [ -f "$REALFILE" ]; then
