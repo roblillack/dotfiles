@@ -16,6 +16,7 @@
   ci = commit -a
   co = checkout
   st = status
+  s = status -uno
   br = branch -a
   l = log --graph --pretty=format:\"%Cred%h%Cgreen %cd %Creset|%C(yellow)%d%Creset %s -- %Cblue%an%Creset, %Cgreen%ar%Creset\" --abbrev-commit --date=short
   new = !sh -c 'git l $1@{1}..$1@{0} "$@"'
