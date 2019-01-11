@@ -9,7 +9,7 @@ done
 if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
   path=
   for i in $HOME/bin{/`uname -s`-`uname -m`,}\
-           {/opt,/opt/local,/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
+           {/snap,/opt,/opt/local,/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
   do path="${path:+$path:}$i"; done
   export PATH=$path
 fi
