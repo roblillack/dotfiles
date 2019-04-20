@@ -61,10 +61,9 @@ XTerm*pointerShape:             left_ptr
 !XTerm*saveLines:	  200
 !XTerm*visualBell:	  false
 XTerm*vt100.translations: #override\
-  Shift <Btn1Up>:       select-end(CLIPBOARD) \n\
-  Super <Key>C:         select-end(CLIPBOARD)\n\
+  Super <Key>C:         copy-selection(CLIPBOARD)\n\
   Super <Key>V:         insert-selection(CLIPBOARD)\n\
-  Ctrl Shift <Key>C:    select-end(CLIPBOARD)\n\
+  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)\n\
   Ctrl Shift <Key>V:    insert-selection(CLIPBOARD)\n\
   Alt <Key>Up:          string(0x1b) string(0x1b) string("[A")\n\
   Alt <Key>Down:        string(0x1b) string(0x1b) string("[B")\n\
