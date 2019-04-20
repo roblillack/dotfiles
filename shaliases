@@ -51,3 +51,10 @@ fi
 ssh-send-key() {
   PUBKEY=`ssh-keygen -y` && ( echo "$PUBKEY" | ssh $@ 'mkdir -p $HOME/.ssh && cat >> $HOME/.ssh/authorized_keys' )
 }
+
+# Simulate OSX's pbcopy and pbpaste on other platforms
+if [ ! $(uname -s) = "Darwin" ]; then
+    alias pbcopy='xsel --clipboard --input'
+    alias pbpaste='xsel --clipboard --output'
+fi
+
