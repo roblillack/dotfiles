@@ -1,5 +1,6 @@
 [core]
   excludesfile = ~/.gitignore_global
+  attributesfile = ~/.gitattributes
 
 [user]
   name = Robert Lillack
@@ -20,6 +21,13 @@
   br = branch -a
   l = log --graph --pretty=format:\"%Cred%h%Cgreen %cd %Creset|%C(yellow)%d%Creset %s -- %Cblue%an%Creset, %Cgreen%ar%Creset\" --abbrev-commit --date=short
   new = !sh -c 'git l $1@{1}..$1@{0} "$@"'
+  lasttag = describe --tags --abbrev=0
+  changelog = log --pretty=format:\"  * %s\"
+  log-ticket = !sh -c 'git l \"$0\" | grep \"$1\"'
+  quote-string = "!read -r l; printf \\\"!; printf %s \"$l\" | sed 's/\\([\\\"]\\)/\\\\\\1/g'; printf \" #\\\"\\n\" #"
+  ls-ticket = "!sh -c 'git log --pretty=format:\"%h %s\" \"$0\" | grep \"$1\" | cut -f1 -d\" \" | while read i; do git diff-tree --no-commit-id --name-only -r \"$i\"; done | sort -u'"
+  pick-ticket = "!sh -c 'git ls-ticket \"$0\" \"$1\" | xargs -I XXX sh -c \"git checkout \\\"$0\\\" -- XXX ; git add XXX\"; git commit -m \"Merging changes from $0. $1\"'"
+#  changelog = !sh -c 'git log $@ --date=short --pretty=format:\"%cd% D\n%w(75,0,2)* %s -- %h\"' -
 
 [color "branch"]
   current = yellow blue bold
@@ -35,7 +43,7 @@
 #  ff = only
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path = 
+  path =
 [mergetool "sourcetree"]
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
@@ -49,3 +57,12 @@
 
 [push]
 	default = upstream
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[diff "image"]
+	command = ~/bin/git-imgdiff
+
+[url "git@github.com:"]
+      insteadOf = https://github.com/
