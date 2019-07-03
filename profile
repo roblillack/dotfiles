@@ -8,7 +8,7 @@ done
 # setting the path a bit like in tcsh
 if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
   path=
-  for i in $HOME/{.yarn/,dev/go/,}bin{/`uname -s`-`uname -m`,}\
+  for i in $HOME/{,.yarn/,dev/go/,go/}bin{/`uname -s`-`uname -m`,}\
            {/snap,/opt,/opt/local,/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
   do path="${path:+$path:}$i"; done
   export PATH=$path
