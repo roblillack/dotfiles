@@ -2,6 +2,7 @@ alias h='history 25'
 alias j='jobs -l'
 alias t=task
 alias goals='task ls tag:goal'
+alias now='date +%FT%T%z'
 
 [ "x`uname -s`" = "xDarwin" ] && alias ls='ls -G'
 alias ll='ls -l'
