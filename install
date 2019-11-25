@@ -40,6 +40,8 @@ for i in $DIR/*; do
     fi
 
     if [ -f "$REALFILE" ]; then
+        `cmp --silent "$REALFILE" "$i"` && continue
+
         if yesno "`basename \"$REALFILE\"` exists. Overwrite?"; then
             BACKUP="$REALFILE.backup-`date +%F`"
             echo "Backing up to $BACKUP ..."
