@@ -9,8 +9,14 @@ done
 if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
   path=
   for i in $HOME/{,.yarn/,dev/go/,go/}bin{/`uname -s`-`uname -m`,}\
-           {/snap,/opt,/opt/local,/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
+           {/usr/local/go,/snap,/opt,/opt/local,/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
   do path="${path:+$path:}$i"; done
+
+  # optional paths
+  for i in /mnt/c/Program\ Files/Microsoft\ VS\ Code/bin; do
+    [ -d "$i" ] && path="${path:+$path:}$i"
+  done
+
   export PATH=$path
 fi
 
