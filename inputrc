@@ -13,12 +13,15 @@ set match-hidden-files off
 set bind-tty-special-chars off
 
 "\C-w": backward-kill-word
+#"\C-_": backward-kill-word
 "\C-u": kill-whole-line
 "\e[rC;BS~": backward-kill-word
+"\e[+C;BS~": backward-kill-word
+"\e[rA;BS~": backward-kill-word
+"\e[+A;BS~": backward-kill-word
 "\e[3;5~": kill-word
 "\e[rC;DEL~": kill-word
-"\e[rA;BS~": backward-kill-word
-
+"\e[+C;DEL~": kill-word
 
 "\C-n": history-search-forward
 "\C-p": history-search-backward
