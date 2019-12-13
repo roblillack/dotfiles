@@ -63,3 +63,8 @@ if [ ! $(uname -s) = "Darwin" ]; then
   fi
 fi
 
+# Simulate macOS' "open" command on Windows/WSL
+if [ -x "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe" ]; then
+  alias open='/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe /c start'
+fi
+
