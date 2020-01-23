@@ -19,7 +19,7 @@ shopt -s checkwinsize histappend hostcomplete
 #PS1='\[\033[1m\]\u\[\033[00m\]@\[\033[01m\]\h\[\033[00m\]:\[\033[04m\]\w\[\033[00m\]% '
 if [ $UID -eq 0 ]; then
   PS1='\[\e[G\e[7m\]\h:\w#\[\e[0m\] '
-elif type __gitdir &>/dev/null; then
+elif type __git_ps1 &>/dev/null; then
   PS1='\[\e[G\]\u@\h:\w$(__git_ps1 " (%s)")% '
 else
   PS1='\[\e[G\]\u@\h:\w% '
