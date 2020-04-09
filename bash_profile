@@ -16,4 +16,3 @@ for d in {/usr/local/etc/,~/.}bash_completion.d; do
 done
 
 [ -f ~/.bashrc ] && . ~/.bashrc
-export DOCKER_HOST=localhost:2375
