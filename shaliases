@@ -70,3 +70,4 @@ if [ -x "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe" ]; then
   }
 fi
 
+`which nvim 2>&1 >/dev/null` && alias vim=nvim
