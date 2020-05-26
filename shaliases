@@ -68,8 +68,8 @@ if [ -x "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe" ]; then
   open() {
     /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe /c start `wslpath -w $1`
   }
-elif which xdg-open 2&>1 >/dev/null; then
+elif which xdg-open 2>/dev/null; then
   alias open=xdg-open
 fi
 
-which nvim 2&>1 >/dev/null && alias vim=nvim
+which nvim 2>/dev/null && alias vim=nvim
