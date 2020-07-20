@@ -8,7 +8,7 @@ done
 # setting the path a bit like in tcsh
 if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
   path=
-  for i in $HOME/{,.local/,.yarn/,dev/{flutter,go}/,go/}bin{/`uname -s`-`uname -m`,}\
+  for i in $HOME/{,.local/,.cargo/,.yarn/,dev/{flutter,go}/,go/}bin{/`uname -s`-`uname -m`,}\
            {/usr/local/go,/snap,/opt,/opt/local,/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
   do path="${path:+$path:}$i"; done
 
