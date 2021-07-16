@@ -9,7 +9,8 @@ if [ -n "$BASH_VERSION" -o "$KSH_VERSION" -o "$ZSH_VERSION" ]; then
   do path="${path:+$path:}$i"; done
 
   # optional paths
-  for i in /mnt/c/{Users/${USER}/AppData/Local/Programs,Program\ Files}/Microsoft\ VS\ Code/bin; do
+  for i in /mnt/c/{Users/${USER}/AppData/Local/Programs,Program\ Files}/Microsoft\ VS\ Code/bin\
+           /home/linuxbrew/.linuxbrew/bin; do
     [ -d "$i" ] && path="${path:+$path:}$i"
   done
 
