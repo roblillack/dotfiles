@@ -1,15 +1,8 @@
-# bash-completion
-for i in {,/opt/local,/usr/local}/etc/bash_completion; do
-    if [ -f $i ]; then
-        . $i
-    fi
-done
-
 # setting the path a bit like in tcsh
 if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
   path=
   for i in $HOME/{,.local/,.cargo/,.yarn/,dev/{flutter,go}/,go/}bin{/`uname -s`-`uname -m`,}\
-           {/usr/local/go,/snap,/opt,/opt/local,/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
+           {/usr/local/go,/snap,/opt{,/local,/homebrew},/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
   do path="${path:+$path:}$i"; done
 
   # optional paths
