@@ -17,4 +17,12 @@ bindkey -e
 bindkey "\e[A" history-beginning-search-backward
 bindkey "\e[B" history-beginning-search-forward
 
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 [ -r ~/.shrc ] && . ~/.shrc
