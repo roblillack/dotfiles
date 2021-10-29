@@ -1,7 +1,10 @@
+system=`uname -s`
+machine=`uname -m`
+
 # setting the path a bit like in tcsh
-if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
+if [ -n "$BASH_VERSION" -o "$KSH_VERSION" -o "$ZSH_VERSION" ]; then
   path=
-  for i in $HOME/{,.local/,.cargo/,.yarn/,dev/{flutter,go}/,go/}bin{/`uname -s`-`uname -m`,}\
+  for i in $HOME/{,.local/,.cargo/,.yarn/,dev/{flutter,go}/,go/}bin{/$system-$machine,}\
            {/usr/local/go,/snap,/opt{,/local,/homebrew},/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
   do path="${path:+$path:}$i"; done
 
@@ -13,12 +16,14 @@ if [ -n "$BASH_VERSION" -o "$KSH_VERSION" ]; then
   export PATH=$path
 fi
 
+[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # set ENV to a file invoked each time sh is started for interactive use.
 ENV=$HOME/.shrc; export ENV
 
 if [ -f $HOME/.localerc ]; then
   . $HOME/.localerc
-elif [ "x`uname -s`" = "xOpenBSD" ]; then
+elif [ "x$system" = "xOpenBSD" ]; then
   LC_CTYPE=en_US.UTF-8; export LC_CTYPE
   unset LC_ALL
   unset LC_COLLATE
