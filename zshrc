@@ -10,8 +10,18 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 
+function git_branch_name() {
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]]; then
+    :
+  else
+    echo '('$branch') '
+  fi
+}
+
+setopt prompt_subst
+PROMPT='%~ $(git_branch_name)%# '
 #PROMPT='%~ %(!.#.$) '
-PROMPT='%~ %# '
 
 bindkey -e
 bindkey "\e[A" history-beginning-search-backward
