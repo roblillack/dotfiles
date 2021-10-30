@@ -17,6 +17,13 @@ bindkey -e
 bindkey "\e[A" history-beginning-search-backward
 bindkey "\e[B" history-beginning-search-forward
 
+bindkey "\e[rC;BS~" backward-delete-word
+bindkey "\e[rC;DEL~" delete-word
+bindkey "\e[1;5D" backward-word
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1~" beginning-of-line
+bindkey "\e[4~" end-of-line
+
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
