@@ -4,5 +4,5 @@ case "$0" in *ksh) [ -r ~/.kshrc ] && . ~/.kshrc ;; esac
 [ -r ~/.shaliases ] && . ~/.shaliases
 
 for i in birthdays pal; do
-    [ `which $i 2>&1 >/dev/null` ] && $i
+    which $i 2>&1 >/dev/null && $i
 done
