@@ -31,8 +31,14 @@ bindkey "\e[rC;BS~" backward-delete-word
 bindkey "\e[rC;DEL~" delete-word
 bindkey "\e[1;5D" backward-word
 bindkey "\e[1;5C" forward-word
+
+# tmux / screen-256color
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
+
+# Terminal.app / xterm-256color
+bindkey "\eOH" beginning-of-line
+bindkey "\eOF" end-of-line
 
 if type brew &>/dev/null
 then
