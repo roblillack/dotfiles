@@ -33,6 +33,7 @@ bindkey "\e[1;5D" backward-word
 bindkey "\e[1;5C" forward-word
 
 # tmux / screen-256color
+bindkey "\e[3~" delete-char
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 
