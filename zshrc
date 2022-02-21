@@ -1,6 +1,7 @@
 HISTFILE=$HOME/.zsh_history
 SAVEHIST=10000
 HISTSIZE=10000
+WORDCHARS="*?_-.[]~=&;!#$%^(){}<>"
 setopt EXTENDED_HISTORY
 setopt SHARE_HISTORY
 setopt APPEND_HISTORY
