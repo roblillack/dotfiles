@@ -16,12 +16,15 @@ set bind-tty-special-chars off
 #"\C-_": backward-kill-word
 "\C-u": kill-whole-line
 "\e[rC;BS~": backward-kill-word
-"\e[+C;BS~": backward-kill-word
 "\e[rA;BS~": backward-kill-word
-"\e[+A;BS~": backward-kill-word
-"\e[3;5~": kill-word
 "\e[rC;DEL~": kill-word
-"\e[+C;DEL~": kill-word
+
+# CSI u mode
+"\e[127;5u": backward-kill-word
+"\e[3;5~": kill-word
+"\e[3~": delete-char
+"\e[1;5D": backward-word
+"\e[1;5C": forward-word
 
 "\C-n": history-search-forward
 "\C-p": history-search-backward
@@ -34,13 +37,9 @@ set bind-tty-special-chars off
 # rxvt
 "\eOd": backward-word
 "\eOc": forward-word
-"\e[3~": delete-char
 # xterm
 "\e[5D": backward-word
 "\e[5C": forward-word
-# xfree 4.3 xterm
-"\e[1;5D": backward-word
-"\e[1;5C": forward-word
 # screen
 "\eO5D": backward-word
 "\eO5C": forward-word
