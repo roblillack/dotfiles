@@ -1,9 +1,16 @@
-! yeaah!
 Xft.hinting: true
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintfull
 Xft.antialias: true
-Xft.rgba: rgb
-Xft.dpi: 96
+Xft.autohint:  0
+Xft.lcdfilter: lcdnone
+! 2022 Update: This is still necessary to force all apps to
+! use the corrent "UI scaling factor". Just assume that 96 dpi
+! means 100% that usually works ok up to a ~120ppi screen, so set
+! this accordingly. For a ~160ppi screen (14in ThinkPad with FHD)
+! I usually go with ~125% UI scale, aka 96dpi * 1.25 = 120dpi
+Xft.dpi: 120
+! Disable sub-pixel rendering (set this to "rgb" if needed)
+Xft.rgba: none
 
 acroread5*background:		#d5d6d5
 acroread5*shadowThickness:	1
@@ -20,6 +27,8 @@ XTerm*title:            Terminal Emulation
 XTerm*utf8:             2
 XTerm*fastScroll:       true
 XTerm*faceName:         Envy Code R
+! Double-check with `stty size` that we get a ~214x66 or ~212x50
+! fullscreen terminal for 14 inch 16:10 or 16:9 screens
 XTerm*faceSize:         10
 XTerm*boldMode:         true
 XTerm*underLine:        true
