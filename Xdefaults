@@ -64,6 +64,7 @@ XTerm*highlightTextColor:       white
 XTerm*highlightSelection:       true
 
 XTerm*internalBorder:           1
+XTerm*scrollBar:		false
 !XTerm*jumpscroll:	  true
 XTerm*pointerShape:             left_ptr
 !XTerm*reverseWrap:	  false
