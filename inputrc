@@ -44,3 +44,6 @@ set bind-tty-special-chars off
 "\eO5D": backward-word
 "\eO5C": forward-word
 
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
