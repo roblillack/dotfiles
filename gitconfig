@@ -14,8 +14,10 @@
 [alias]
   ltag = for-each-ref --sort='-*authordate' --format='%(tag)' refs/tags --count=1
   dist = !bash -c 'ltag=$(git ltag) tree=${1:-${ltag:-HEAD}} name="$(basename $(pwd))-${tree}.tgz" && git archive "${tree}" | gzip -9 > "${name}" && du -sh "${name}"' "$1"
+  ap = add -p
   ci = commit -a
   co = checkout
+  ds = diff --staged
   st = status
   s = status -uno
   br = branch -a
@@ -27,6 +29,7 @@
   quote-string = "!read -r l; printf \\\"!; printf %s \"$l\" | sed 's/\\([\\\"]\\)/\\\\\\1/g'; printf \" #\\\"\\n\" #"
   ls-ticket = "!sh -c 'git log --pretty=format:\"%h %s\" \"$0\" | grep \"$1\" | cut -f1 -d\" \" | while read i; do git diff-tree --no-commit-id --name-only -r \"$i\"; done | sort -u'"
   pick-ticket = "!sh -c 'git ls-ticket \"$0\" \"$1\" | xargs -I XXX sh -c \"git checkout \\\"$0\\\" -- XXX ; git add XXX\"; git commit -m \"Merging changes from $0. $1\"'"
+	diff-image = "!f() { cd -- \"${GIT_PREFIX:-.}\"; GIT_DIFF_IMAGE_ENABLED=1 git diff \"$@\"; }; f"
 #  changelog = !sh -c 'git log $@ --date=short --pretty=format:\"%cd% D\n%w(75,0,2)* %s -- %h\"' -
 
 [color "branch"]
@@ -61,8 +64,9 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+	process = git-lfs filter-process
 [diff "image"]
-	command = ~/bin/git-imgdiff
+	command = ~/dev/git-diff-image/git_diff_image
 
 [url "git@github.com:"]
       insteadOf = https://github.com/
