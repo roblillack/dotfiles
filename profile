@@ -5,7 +5,7 @@ machine=`uname -m`
 if [ -n "$BASH_VERSION" -o "$KSH_VERSION" -o "$ZSH_VERSION" ]; then
   path=
   for i in $HOME/{,.local/,.cargo/,.yarn/,dev/{flutter,go}/,go/}bin{/$system-$machine,}\
-           {/usr/local/go,/snap,/opt{,/local,/homebrew},/sw,/usr/local,/Developer/usr,,/usr,/usr/X11R6}/{s,}bin
+           {/usr/local/go,/snap,/opt{,/local,/homebrew},/sw,/usr/local,/Developer/usr,/usr/pkg,,/usr,/usr/X11R6}/{s,}bin
   do path="${path:+$path:}$i"; done
 
   # optional paths
