@@ -10,3 +10,6 @@ for i in {,/opt/homebrew,/home/linuxbrew/.linuxbrew,/opt/local,/usr/local}/{etc/
 done
 
 [ -f ~/.bashrc ] && . ~/.bashrc
+
+# opam configuration
+test -r /Users/rob/.opam/opam-init/init.sh && . /Users/rob/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
