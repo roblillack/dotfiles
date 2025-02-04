@@ -1,0 +1,26 @@
+theme = "nord_light"
+
+[editor]
+true-color = true
+color-modes = true
+cursorline = true
+rulers = [80]
+end-of-line-diagnostics = "hint"
+# Does not seem to make a difference
+#popup-border = "all"
+# Working???
+#clipboard-provider = "termcode"
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25 # increase value to reduce forced mid-word wrapping
+max-indent-retain = 0
+wrap-indicator = ""  # set wrap-indicator to "" to hide it
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "underline"
+select = "underline"

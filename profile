@@ -61,7 +61,9 @@ if [ "x" != "x`which $EMACS 2>/dev/null`" -a\
     alias E='$EMACSCLIENT --no-wait --create-frame --alternate-editor='
 fi
 
-if [ `which vim 2>/dev/null` ]; then
+if [ `which hx 2>/dev/null` ]; then
+    EDITOR=hx
+elif [ `which vim 2>/dev/null` ]; then
     EDITOR=vim
 else
     EDITOR=vi

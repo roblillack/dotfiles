@@ -8,7 +8,44 @@ yesno() {
     esac
 }
 
-DIR=`dirname $0`
+DIR=$(cd $(dirname $0) && pwd)
+
+for APP_DIR in $DIR/config/*; do
+    [ -d "$APP_DIR" ] || continue
+
+    APP=$(basename "$APP_DIR")
+
+    for i in $APP_DIR/*; do
+        REALFILE=$HOME/.config/$APP/`basename "$i"`
+
+        # skip executables
+        [ -x "$i" ] && continue
+
+        # skip directories
+        [ -d "$i" ] && continue
+
+        # skip already hardlinked files
+        if [ "$i" -ef "$REALFILE" ]; then
+            continue
+        fi
+
+        mkdir -p "$HOME/.config/$APP"
+
+        if [ -f "$REALFILE" ]; then
+            `cmp -s "$REALFILE" "$i"` && continue
+
+            if yesno "`basename \"$REALFILE\"` exists. Overwrite?"; then
+                BACKUP="$REALFILE.backup-`date +%F`"
+                echo "Backing up to $BACKUP ..."
+                mv "$REALFILE" "$REALFILE.backup-`date +%F`"
+            else
+                continue
+            fi
+        fi
+
+        ln "$i" "$REALFILE"
+    done
+done
 
 for i in $DIR/*; do
     REALFILE=$HOME/.`basename "$i"`
@@ -16,6 +53,9 @@ for i in $DIR/*; do
 
     # skip executables
     [ -x "$i" ] && continue
+
+    # skip directories
+    [ -d "$i" ] && continue
 
     # skip already hardlinked files
     if [ "$i" -ef "$REALFILE" ]; then
