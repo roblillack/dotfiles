@@ -239,3 +239,14 @@ URxvt.perl-ext-common: default,matcher
 URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+
+XLock.mode: goop
+XLock.usefirst: off
+XLock.description: off
+XLock.dpmsstandby: -1
+XLock.dpmssuspend: -1
+XLock.dpmsoff: 900
+XLock.erasedelay: 1
+XLock.erasemode: squaretate
+XLock.background: #505075
+XLock.foreground: white
