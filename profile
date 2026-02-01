@@ -3,6 +3,13 @@ machine=`uname -m`
 
 # setting the path a bit like in tcsh
 if [ -n "$BASH_VERSION" -o "$KSH_VERSION" -o "$ZSH_VERSION" ]; then
+  # On NixOS, preserve system-provided paths at the end
+  if [ -f /etc/NIXOS ]; then
+    syspath=$PATH
+  else
+    syspath=
+  fi
+
   path=
   for i in $HOME/{,.local/,.cargo/,.yarn/,dev/{flutter,go}/,go/}bin{/$system-$machine,}\
            {/usr/local/go,/snap,/opt{,/local,/homebrew},/sw,/usr/local,/Developer/usr,/usr/pkg,,/usr,/usr/X11R6}/{s,}bin
@@ -14,7 +21,7 @@ if [ -n "$BASH_VERSION" -o "$KSH_VERSION" -o "$ZSH_VERSION" ]; then
     [ -d "$i" ] && path="${path:+$path:}$i"
   done
 
-  export PATH=$path
+  export PATH=${path}${syspath:+:$syspath}
 fi
 
 [ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"

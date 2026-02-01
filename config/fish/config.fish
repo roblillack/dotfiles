@@ -18,6 +18,14 @@ function fish_prompt -d "Write out the prompt"
     echo -n -s $USER '@' (prompt_hostname) ':' (prompt_pwd) (fish_vcs_prompt) $suffix ' '
 end
 
+function fish_title
+    set -q argv[1]; or set argv fish
+    # Looks like ~/d/fish: git log
+    # or /e/apt: fish
+    echo (fish_prompt_pwd_dir_length=1 prompt_pwd): $argv
+
+end
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     set -g fish_autosuggestion_enabled 0
@@ -43,6 +51,11 @@ set -gx VISUAL $EDITOR
 if test -f /opt/homebrew/bin/brew
     eval "$(/opt/homebrew/bin/brew shellenv)"
     fish_add_path /opt/homebrew/bin
+end
+
+# On NixOS, preserve system paths before adding user paths
+if test -f /etc/NIXOS
+    set -g --append fish_user_paths $PATH
 end
 
 fish_add_path ~/bin ~/{go,.cargo,.yarn,.local}/bin >/dev/null
