@@ -93,3 +93,14 @@ for i in $DIR/*; do
 
     ln "$i" "$REALFILE"
 done
+
+# Load dconf settings if dconf is available
+if command -v dconf >/dev/null 2>&1 && [ -d "$DIR/dconf" ]; then
+    for i in "$DIR/dconf"/*.conf; do
+        [ -f "$i" ] || continue
+        if yesno "Load dconf settings from $(basename "$i")?"; then
+            dconf load / < "$i"
+            echo "Loaded $(basename "$i")"
+        fi
+    done
+fi
