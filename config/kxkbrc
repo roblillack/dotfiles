@@ -1,0 +1,13 @@
+[Layout]
+DisplayNames=
+LayoutList=eu
+LayoutLoopCount=-1
+Model=pc105
+Options=ctrl:nocaps
+ResetOldOptions=true
+ShowFlag=false
+ShowLabel=true
+ShowLayoutIndicator=true
+ShowSingle=false
+SwitchMode=Global
+Use=true

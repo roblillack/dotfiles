@@ -47,6 +47,36 @@ for APP_DIR in $DIR/config/*; do
     done
 done
 
+# Handle files directly in config/ (not in subdirectories)
+for i in $DIR/config/*; do
+    [ -f "$i" ] || continue
+    REALFILE=$HOME/.config/$(basename "$i")
+
+    # skip executables
+    [ -x "$i" ] && continue
+
+    # skip already hardlinked files
+    if [ "$i" -ef "$REALFILE" ]; then
+        continue
+    fi
+
+    mkdir -p "$HOME/.config"
+
+    if [ -f "$REALFILE" ]; then
+        `cmp -s "$REALFILE" "$i"` && continue
+
+        if yesno "$(basename "$REALFILE") exists. Overwrite?"; then
+            BACKUP="$REALFILE.backup-$(date +%F)"
+            echo "Backing up to $BACKUP ..."
+            mv "$REALFILE" "$BACKUP"
+        else
+            continue
+        fi
+    fi
+
+    ln "$i" "$REALFILE"
+done
+
 for i in $DIR/*; do
     REALFILE=$HOME/.`basename "$i"`
     BASENAME=$(basename "$i")
