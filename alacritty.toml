@@ -1,0 +1,98 @@
+#background_opacity = 0.95
+#enable_experimental_conpty_backend = true
+#unfocused_hollow = true
+
+#[colors]
+#draw_bold_text_with_bright_colors = true
+
+[colors.cursor]
+cursor = "0x4169E1"
+text = "0x000000"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x333399"
+cyan = "0x7777cc"
+green = "0xb9ca4a"
+magenta = "0xc397d8"
+red = "0xd54e53"
+white = "0xeaeaea"
+yellow = "0xe6c547"
+
+[colors.primary]
+background = "0xffffff"
+bright_foreground = "0xcd0000"
+dim_foreground = "0x555555"
+foreground = "0x333333"
+
+[colors.selection]
+background = "0x4169E1"
+text = "0xffffff"
+
+[font]
+size = 11.0
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "PasteSelection"
+key = "Insert"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Return"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B[rA;BS~"
+key = "Back"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B[rC;BS~"
+key = "Back"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[rC;DEL~"
+key = "Delete"
+mods = "Control"
+
+[window]
+dynamic_padding = true
+title = "Terminal"
+
+[window.padding]
+x = 1
+y = 1
+
+[keyboard]
