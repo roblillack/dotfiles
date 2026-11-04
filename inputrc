@@ -15,9 +15,16 @@ set bind-tty-special-chars off
 "\C-w": backward-kill-word
 #"\C-_": backward-kill-word
 "\C-u": kill-whole-line
+# "Rob keys" sent by xterm (~/.Xdefaults), iTerm2 and Windows Terminal:
+# \e[rA;KEY~ = Alt+KEY, \e[rC;KEY~ = Ctrl+KEY
 "\e[rC;BS~": backward-kill-word
 "\e[rA;BS~": backward-kill-word
 "\e[rC;DEL~": kill-word
+"\e[rA;DEL~": kill-word
+"\e[rC;LEFT~": backward-word
+"\e[rC;RIGHT~": forward-word
+"\e[rA;LEFT~": backward-word
+"\e[rA;RIGHT~": forward-word
 
 # CSI u mode
 "\e[127;5u": backward-kill-word
@@ -25,6 +32,12 @@ set bind-tty-special-chars off
 "\e[3~": delete-char
 "\e[1;5D": backward-word
 "\e[1;5C": forward-word
+# Alt variants (kitty, xterm-style terminals); Alt+Backspace = "\e\x7f"
+# is already backward-kill-word by default
+"\e[127;3u": backward-kill-word
+"\e[3;3~": kill-word
+"\e[1;3D": backward-word
+"\e[1;3C": forward-word
 
 "\C-n": history-search-forward
 "\C-p": history-search-backward
