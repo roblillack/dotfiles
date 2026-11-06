@@ -8,6 +8,49 @@ yesno() {
     esac
 }
 
+# Max number of diff lines to show inline; longer diffs are offered in a pager.
+DIFF_MAX_LINES=$(( $(tput lines 2>/dev/null || echo 24) / 2 ))
+
+# showdiff OLD NEW [--pager]
+showdiff() {
+    if command -v git >/dev/null 2>&1; then
+        if [ "$3" = "--pager" ]; then
+            git -c core.pager="${PAGER:-less -R}" diff --no-index -- "$1" "$2"
+        else
+            git --no-pager diff --no-index --color=auto -- "$1" "$2"
+        fi
+    elif [ "$3" = "--pager" ]; then
+        diff -u "$1" "$2" | ${PAGER:-less}
+    else
+        diff -u "$1" "$2"
+    fi
+}
+
+# confirm_overwrite NEW EXISTING
+# Shows how EXISTING would change (inline if short, else on request in a
+# pager) and asks whether to overwrite it.
+confirm_overwrite() {
+    local NAME NLINES
+    NAME=$(basename "$2")
+    NLINES=$(diff -u "$2" "$1" | wc -l)
+
+    if [ "$NLINES" -le "$DIFF_MAX_LINES" ]; then
+        echo "$NAME exists and differs:"
+        showdiff "$2" "$1"
+        yesno "Overwrite $NAME?"
+        return
+    fi
+
+    while true; do
+        read -p "$NAME exists and differs ($NLINES diff lines). Overwrite? [y/N/d=show diff] " REPLY
+        case "$REPLY" in
+            [dD]*) showdiff "$2" "$1" --pager;;
+            [yY]*) return 0;;
+            *) return 1;;
+        esac
+    done
+}
+
 DIR=$(cd $(dirname $0) && pwd)
 
 for APP_DIR in $DIR/config/*; do
@@ -38,7 +81,7 @@ for APP_DIR in $DIR/config/*; do
                 continue
             fi
 
-            if yesno "`basename \"$REALFILE\"` exists. Overwrite?"; then
+            if confirm_overwrite "$i" "$REALFILE"; then
                 BACKUP="$REALFILE.backup-`date +%F`"
                 echo "Backing up to $BACKUP ..."
                 mv "$REALFILE" "$REALFILE.backup-`date +%F`"
@@ -73,7 +116,7 @@ for i in $DIR/config/*; do
             continue
         fi
 
-        if yesno "$(basename "$REALFILE") exists. Overwrite?"; then
+        if confirm_overwrite "$i" "$REALFILE"; then
             BACKUP="$REALFILE.backup-$(date +%F)"
             echo "Backing up to $BACKUP ..."
             mv "$REALFILE" "$BACKUP"
@@ -124,7 +167,7 @@ for i in $DIR/*; do
             continue
         fi
 
-        if yesno "`basename \"$REALFILE\"` exists. Overwrite?"; then
+        if confirm_overwrite "$i" "$REALFILE"; then
             BACKUP="$REALFILE.backup-`date +%F`"
             echo "Backing up to $BACKUP ..."
             mv "$REALFILE" "$REALFILE.backup-`date +%F`"
