@@ -1,6 +1,7 @@
 [core]
   excludesfile = ~/.gitignore_global
   attributesfile = ~/.gitattributes
+  pager = lessi
 
 [branch]
   sort=-committerdate
@@ -47,12 +48,6 @@
   untracked = normal reverse
 #[merge]
 #  ff = only
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
 
 [diff "docx"]
   textconv = docx2txt <
@@ -68,12 +63,15 @@
 	smudge = git lfs smudge %f
 	required = true
 	process = git-lfs filter-process
-[diff "image"]
-	command = ~/dev/git-diff-image/git_diff_image
-
 [url "git@github.com:"]
       insteadOf = https://github.com/
 [pull]
 	ff = only
 [init]
 	defaultBranch = main
+
+[difftool]
+[difftool "imgap"]
+	cmd = imgap -i \"$LOCAL\" \"$REMOTE\"
+[diff "image"]
+	command = imgap
