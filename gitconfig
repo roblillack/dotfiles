@@ -2,6 +2,9 @@
   excludesfile = ~/.gitignore_global
   attributesfile = ~/.gitattributes
 
+[branch]
+  sort=-committerdate
+
 [user]
   name = Robert Lillack
   email = rob@lillack.net
