@@ -32,7 +32,11 @@ for APP_DIR in $DIR/config/*; do
         mkdir -p "$HOME/.config/$APP"
 
         if [ -f "$REALFILE" ]; then
-            `cmp -s "$REALFILE" "$i"` && continue
+            if cmp -s "$REALFILE" "$i"; then
+                # same content: just relink
+                ln -f "$i" "$REALFILE"
+                continue
+            fi
 
             if yesno "`basename \"$REALFILE\"` exists. Overwrite?"; then
                 BACKUP="$REALFILE.backup-`date +%F`"
@@ -63,7 +67,11 @@ for i in $DIR/config/*; do
     mkdir -p "$HOME/.config"
 
     if [ -f "$REALFILE" ]; then
-        `cmp -s "$REALFILE" "$i"` && continue
+        if cmp -s "$REALFILE" "$i"; then
+            # same content: just relink
+            ln -f "$i" "$REALFILE"
+            continue
+        fi
 
         if yesno "$(basename "$REALFILE") exists. Overwrite?"; then
             BACKUP="$REALFILE.backup-$(date +%F)"
@@ -87,11 +95,6 @@ for i in $DIR/*; do
     # skip directories
     [ -d "$i" ] && continue
 
-    # skip already hardlinked files
-    if [ "$i" -ef "$REALFILE" ]; then
-        continue
-    fi
-
     if [ "${i##*.}" = "plist" ]; then
         if [ `uname -s` != "Darwin" ]; then
             continue
@@ -109,8 +112,17 @@ for i in $DIR/*; do
         fi
     fi
 
+    # skip already hardlinked files
+    if [ "$i" -ef "$REALFILE" ]; then
+        continue
+    fi
+
     if [ -f "$REALFILE" ]; then
-        `cmp -s "$REALFILE" "$i"` && continue
+        if cmp -s "$REALFILE" "$i"; then
+            # same content: just relink
+            ln -f "$i" "$REALFILE"
+            continue
+        fi
 
         if yesno "`basename \"$REALFILE\"` exists. Overwrite?"; then
             BACKUP="$REALFILE.backup-`date +%F`"
